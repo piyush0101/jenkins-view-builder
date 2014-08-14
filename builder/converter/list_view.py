@@ -3,10 +3,11 @@ import os
 import xml.etree.ElementTree as ET
 from column_mapping import mapping
 
+
 def convert_to_xml(yaml_str):
     yaml_dict = yaml.load(yaml_str)
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    template_path = os.path.join(current_dir, 
+    template_path = os.path.join(current_dir,
                                  'templates/list_view_template.xml')
     root = ET.parse(template_path).getroot()
     set_name(root, yaml_dict)
@@ -16,9 +17,11 @@ def convert_to_xml(yaml_str):
     xml = ET.tostring(root, method='xml', encoding="us-ascii")
     return "<?xml version=\"1.0\" ?>" + xml
 
+
 def set_name(root, yaml_dict):
     name = root.find('name')
     name.text = yaml_dict[0]['view']['name']
+
 
 def set_jobs(root, yaml_dict):
     jobs_section = root.find('jobNames')
@@ -28,6 +31,7 @@ def set_jobs(root, yaml_dict):
     for element in job_elements:
         jobs_section.append(element)
 
+
 def set_columns(root, yaml_dict):
     columns_section = root.find('columns')
     columns = yaml_dict[0]['view']['columns']
@@ -36,9 +40,11 @@ def set_columns(root, yaml_dict):
     for element in column_elements:
         columns_section.append(element)
 
+
 def set_recurse(root, yaml_dict):
     recurse = root.find('recurse')
     recurse.text = 'true' if yaml_dict[0]['view']['recurse'] else 'false'
+
 
 def create_column_element(column):
     column_name = mapping.get(column, None)
@@ -47,6 +53,7 @@ def create_column_element(column):
     else:
         raise Exception('Bad column name - %s' % column)
     return column_element
+
 
 def create_job_element(name):
     job_element = ET.Element('string')
