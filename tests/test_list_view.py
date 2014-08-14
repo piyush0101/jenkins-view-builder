@@ -1,9 +1,9 @@
 import os
 from unittest import TestCase
 import xml.etree.ElementTree as ET
-from builder.list_view import convert_to_xml
-from builder.list_view import create_job_element
-from builder.list_view import create_column_element
+from builder.converter.list_view import convert_to_xml
+from builder.converter.list_view import create_job_element
+from builder.converter.list_view import create_column_element
 
 class TestListView(TestCase):
 
