@@ -1,3 +1,4 @@
+import os
 from unittest import TestCase
 import xml.etree.ElementTree as ET
 from builder.list_view import convert_to_xml
@@ -6,9 +7,12 @@ from builder.list_view import create_column_element
 
 class TestListView(TestCase):
 
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_dir + "/%s")
+    
     def test_should_generate_a_view_xml_given_a_yaml(self):
-        yaml_file = open('list_view.yaml', 'r')
-        xml_file = open('list_view.xml', 'r')
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        xml_file = open(self.file_path % 'list_view.xml', 'r')
 
         yaml = yaml_file.read()
         expected_xml = xml_file.read()
@@ -18,7 +22,7 @@ class TestListView(TestCase):
         self.assertEqual(actual_xml.rstrip(), expected_xml.rstrip())
 
     def test_should_have_a_name_tag_in_view_xml(self):
-        yaml_file = open('list_view.yaml', 'r')
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
 
         yaml = yaml_file.read()
 
@@ -29,7 +33,7 @@ class TestListView(TestCase):
         self.assertEqual(name.text, 'monsanto')
         
     def test_should_have_jobs_in_view_xml(self):
-        yaml_file = open('list_view.yaml', 'r')
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
 
         yaml = yaml_file.read()
 
@@ -43,7 +47,7 @@ class TestListView(TestCase):
                                     'Merge-bark-Ply'])
 
     def test_should_have_columns_in_view_xml(self):
-        yaml_file = open('list_view.yaml', 'r')
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
 
         yaml = yaml_file.read()
 
@@ -56,7 +60,7 @@ class TestListView(TestCase):
                                            'hudson.views.WeatherColumn'])
         
     def test_should_include_recurse_flag_in_xml(self):
-        yaml_file = open('list_view.yaml', 'r')
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
 
         yaml = yaml_file.read()
 

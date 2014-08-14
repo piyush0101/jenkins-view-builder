@@ -1,10 +1,14 @@
 import yaml
+import os
 import xml.etree.ElementTree as ET
 from column_mapping import mapping
 
 def convert_to_xml(yaml_str):
     yaml_dict = yaml.load(yaml_str)
-    root = ET.parse('list_view_template.xml').getroot()
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    template_path = os.path.join(current_dir, 
+                                 'templates/list_view_template.xml')
+    root = ET.parse(template_path).getroot()
     set_name(root, yaml_dict)
     set_jobs(root, yaml_dict)
     set_columns(root, yaml_dict)
