@@ -1,0 +1,11 @@
+- view:
+    type: list
+    name: monsanto
+    jobs:
+     - Merge-nova-Ply
+     - Merge-config-Ply
+     - Merge-bark-Ply    
+    columns:
+     - status
+     - weather
+    recurse: False
