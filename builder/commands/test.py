@@ -10,7 +10,7 @@ from builder.uploader.jenkins_upload import update
 
 
 class Test(Command):
-    "Spits out the generated xmls"
+    "Spits out the generated xmls in the out folder of cwd"
 
     log = logging.getLogger(__name__)
 
@@ -28,4 +28,6 @@ class Test(Command):
             self.log.debug(yaml)
 
         name, xml = convert_to_xml(yaml)
-        print xml 
+        os.makedirs("out")
+        with open(os.path.join("out", name + ".xml"), 'w') as xml_file:
+            xml_file.write(xml)
