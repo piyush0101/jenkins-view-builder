@@ -40,6 +40,7 @@ config = {
     'namespace_packages': [],
     'packages': find_packages(),
     'include_package_data': True,
+    'package_data': {'builder.converter.templates': ['*.xml']},
 
     'entry_points' : {
             'console_scripts' : [
