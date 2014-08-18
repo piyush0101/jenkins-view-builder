@@ -49,6 +49,7 @@ config = {
             'builder.commands' : [
                         'simple = builder.commands.simple:Simple',
                         'update = builder.commands.update:Update',
+                        'test = builder.commands.test:Test',
                     ],
         },
 
