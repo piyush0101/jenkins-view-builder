@@ -22,7 +22,6 @@ class Test(Command):
                             help="Path to the view yaml file")
         return parser
 
-
     def take_action(self, parsed_args):
         with open(os.path.join(parsed_args.yaml), 'r') as yaml_file:
             yaml = yaml_file.read()

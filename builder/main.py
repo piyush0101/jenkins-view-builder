@@ -4,24 +4,23 @@ import sys
 from cliff.app import App
 from cliff.commandmanager import CommandManager
 
+
 class JenkinsViewBuilder(App):
 
     log = logging.getLogger(__name__)
 
     def __init__(self):
         super(JenkinsViewBuilder, self).__init__(
-                description="Jenkins View Builder",
-                version=0.1,
-                command_manager=CommandManager('builder.commands'),
-                )
+            description="Jenkins View Builder",
+            version=0.1,
+            command_manager=CommandManager('builder.commands'),
+            )
 
     def initialize_app(self, argv):
         self.log.debug("Initialize app")
-    
 
     def prepare_to_run_command(self, cmd):
-        self.log.debug('prepare_to_run_command %s', cmd.__class__.__name__) 
-
+        self.log.debug('prepare_to_run_command %s', cmd.__class__.__name__)
 
     def clean_up(self, cmd, result, err):
         self.log.debug('clean up %s', cmd.__class__.__name__)
