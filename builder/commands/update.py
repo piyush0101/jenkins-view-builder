@@ -25,19 +25,31 @@ class Update(Command):
         return parser
 
 
+    def read_update(self, config, view_yaml):
+        with open(os.path.join(view_yaml), 'r') as yaml_file:
+            yaml = yaml_file.read()
+            self.log.debug(yaml)
+
+        name, xml = convert_to_xml(yaml)
+        update(config, name, xml)
+
+
     def take_action(self, parsed_args):
         self.log.info("Updating view data in Jenkins")
         if not parsed_args.conf:
             print parser.print_help()
             sys.exit(1)
         config = self.parse_config(parsed_args.conf)
-        with open(os.path.join(parsed_args.yaml), 'r') as yaml_file:
-            yaml = yaml_file.read()
-            self.log.debug(yaml)
+        yaml_file = os.path.join(parsed_args.yaml)
+        
+        if os.path.isdir(yaml_file):
+            views = [view for view in os.listdir(yaml_file)]
+            for view_yaml in views:
+                self.read_update(config, view_yaml)
 
-        name, xml = convert_to_xml(yaml)
-        update(config, name, xml)
-    
+        else:
+            self.read_update(config, parsed_args.yaml)
+
 
     def parse_config(self, config_file):
         self.log.info("Parsing the jenkins config file")
