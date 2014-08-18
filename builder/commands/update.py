@@ -6,6 +6,7 @@ import argparse
 
 from cliff.command import Command
 from builder.converter.list_view import convert_to_xml
+from builder.uploader.jenkins_upload import update
 
 
 class Update(Command):
@@ -34,7 +35,8 @@ class Update(Command):
             yaml = yaml_file.read()
             self.log.debug(yaml)
 
-        xml = convert_to_xml(yaml)
+        name, xml = convert_to_xml(yaml)
+        update(config, name, xml)
     
 
     def parse_config(self, config_file):
@@ -45,9 +47,3 @@ class Update(Command):
         password = config.get('jenkins', 'password')
         url = config.get('jenkins', 'url') + '/createView?name=%s'
         return dict(url=url, user=user, password=password)
-
-        # convert given yaml to xml
-        # if given a directory, get all the yamls from in there and convert
-        # upload xml to jenkins
-        # do not create if the view already exists
-        # in that case update instead

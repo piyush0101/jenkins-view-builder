@@ -15,7 +15,8 @@ def convert_to_xml(yaml_str):
     set_columns(root, yaml_dict)
     set_recurse(root, yaml_dict)
     xml = ET.tostring(root, method='xml', encoding="us-ascii")
-    return "<?xml version=\"1.0\" ?>" + xml
+    return (yaml_dict[0]['view']['name'], 
+            "<?xml version=\"1.0\" ?>" + xml)
 
 
 def set_name(root, yaml_dict):

@@ -17,7 +17,7 @@ class TestListView(TestCase):
         yaml = yaml_file.read()
         expected_xml = xml_file.read()
 
-        actual_xml = convert_to_xml(yaml)
+        name, actual_xml = convert_to_xml(yaml)
 
         self.assertEqual(actual_xml.rstrip(), expected_xml.rstrip())
 
@@ -26,7 +26,7 @@ class TestListView(TestCase):
 
         yaml = yaml_file.read()
 
-        xml_view = convert_to_xml(yaml)
+        name, xml_view = convert_to_xml(yaml)
         xml_root = ET.fromstring(xml_view)
         name = xml_root.find('name')
 
@@ -37,7 +37,7 @@ class TestListView(TestCase):
 
         yaml = yaml_file.read()
 
-        xml_view = convert_to_xml(yaml)
+        name, xml_view = convert_to_xml(yaml)
         xml_root = ET.fromstring(xml_view)
         jobs = xml_root.findall('jobNames/string')
         jobs = [job.text for job in jobs]
@@ -51,7 +51,7 @@ class TestListView(TestCase):
 
         yaml = yaml_file.read()
 
-        xml_view = convert_to_xml(yaml)
+        name, xml_view = convert_to_xml(yaml)
         xml_root = ET.fromstring(xml_view)
         columns = xml_root.findall('columns/')
         column_tags = [column.tag for column in columns]
@@ -64,7 +64,7 @@ class TestListView(TestCase):
 
         yaml = yaml_file.read()
 
-        xml_view = convert_to_xml(yaml)
+        name, xml_view = convert_to_xml(yaml)
         xml_root = ET.fromstring(xml_view)
         recurse = xml_root.find('recurse')
 
