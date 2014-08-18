@@ -18,6 +18,7 @@ def parse_config(config_file):
     url = config.get('jenkins', 'url') + '/createView?name=%s'
     return dict(url=url, user=user, password=password)
 
+
 def create_views(config):
     for view in views:
         with open(os.path.join(views_dir, view), 'r') as view_xml:
@@ -31,6 +32,7 @@ def create_views(config):
                                            config['password']))
             if response.status_code != 200:
                 print response.text
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Creating Jenkins views")
