@@ -2,3 +2,6 @@
 .coverage
 *.pyc
 *.swp
+build
+dist
+jenkins_view_builder.egg-info
