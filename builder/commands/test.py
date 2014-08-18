@@ -1,4 +1,5 @@
 import os
+import shutil
 import ConfigParser
 import logging
 import sys
@@ -28,6 +29,8 @@ class Test(Command):
             self.log.debug(yaml)
 
         name, xml = convert_to_xml(yaml)
+        if os.path.isdir("out"):
+            shutil.rmtree("out", ignore_errors=True)
         os.makedirs("out")
         with open(os.path.join("out", name + ".xml"), 'w') as xml_file:
             xml_file.write(xml)
