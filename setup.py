@@ -46,7 +46,8 @@ config = {
                     'jenkins-view-builder = builder.main:main',
                     ],
             'builder.commands' : [
-                        'simple = builder.simple:Simple',
+                        'simple = builder.commands.simple:Simple',
+                        'update = builder.commands.update:Update',
                     ],
         },
 
