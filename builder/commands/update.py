@@ -44,9 +44,8 @@ class Update(Command):
             views = [view for view in os.listdir(yaml_file)]
             for view_yaml in views:
                 self.read_update(config, view_yaml)
-
         else:
-            self.read_update(config, parsed_args.yaml)
+            self.read_update(config, yaml_file)
 
     def parse_config(self, config_file):
         self.log.info("Parsing the jenkins config file")
