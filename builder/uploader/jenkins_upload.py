@@ -15,6 +15,7 @@ def update(config, view_name, view_xml):
                                  data=payload,
                                  headers=headers,
                                  auth=(config['user'],
-                                       config['password']))
+                                       config['password']),
+                                 verify=False)
         if response.status_code != 200:
             print response.text
