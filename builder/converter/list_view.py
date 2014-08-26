@@ -11,6 +11,7 @@ def convert_to_xml(yaml_str):
                                  'templates/list_view_template.xml')
     root = ET.parse(template_path).getroot()
     set_name(root, yaml_dict)
+    set_description(root, yaml_dict)
     set_jobs(root, yaml_dict)
     set_columns(root, yaml_dict)
     set_recurse(root, yaml_dict)
@@ -22,6 +23,13 @@ def convert_to_xml(yaml_str):
 def set_name(root, yaml_dict):
     name = root.find('name')
     name.text = yaml_dict[0]['view']['name']
+
+
+def set_description(root, yaml_dict):
+    if yaml_dict[0]['view']['description']:
+        element = ET.Element('description')
+        element.text = yaml_dict[0]['view']['description']
+        root.append(element)
 
 
 def set_jobs(root, yaml_dict):

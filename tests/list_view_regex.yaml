@@ -1,11 +1,9 @@
 - view:
     type: list
     name: monsanto
-    description: Merge ply jobs
     jobs:
-     - Merge-nova-Ply
-     - Merge-config-Ply
-     - Merge-bark-Ply    
+     - regex: Merge-*-Ply
+     - create-package-latest
     columns:
      - status
      - weather

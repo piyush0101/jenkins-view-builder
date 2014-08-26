@@ -11,17 +11,6 @@ class TestListView(TestCase):
     current_dir = os.path.dirname(os.path.realpath(__file__))
     file_path = os.path.join(current_dir + "/%s")
 
-    def test_should_generate_a_view_xml_given_a_yaml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
-        xml_file = open(self.file_path % 'list_view.xml', 'r')
-
-        yaml = yaml_file.read()
-        expected_xml = xml_file.read()
-
-        name, actual_xml = convert_to_xml(yaml)
-
-        self.assertEqual(actual_xml.rstrip(), expected_xml.rstrip())
-
     def test_should_have_a_name_tag_in_view_xml(self):
         yaml_file = open(self.file_path % 'list_view.yaml', 'r')
 
@@ -70,6 +59,17 @@ class TestListView(TestCase):
         recurse = xml_root.find('recurse')
 
         self.assertEqual(recurse.text, 'false')
+
+    def test_should_include_description_in_xml(self):
+        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+        description = xml_root.find('description')
+
+        self.assertEqual(description.text, 'Merge ply jobs')
 
     def test_should_create_a_job_element_given_job_name(self):
         job_name = 'jobyjob'
