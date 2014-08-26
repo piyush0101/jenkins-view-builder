@@ -44,7 +44,7 @@ class Update(Command):
             views = [view for view in os.listdir(yaml_file)]
             for view_yaml in views:
                 self.log.debug("View file %s" % view_yaml)
-                self.read_update(config, 
+                self.read_update(config,
                                  os.path.join(yaml_file + '/%s' % view_yaml))
         else:
             self.log.debug("View file %s" % yaml_file)

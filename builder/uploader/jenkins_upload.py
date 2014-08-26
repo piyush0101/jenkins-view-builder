@@ -7,6 +7,7 @@ import re
 
 headers = {'Content-type': 'text/xml'}
 
+
 def post(url, payload, config):
     response = requests.post(url,
                              data=payload,
