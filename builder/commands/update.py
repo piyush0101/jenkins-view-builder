@@ -29,6 +29,7 @@ class Update(Command):
             yaml = yaml_file.read()
             self.log.debug(yaml)
             name, xml = convert_to_xml(yaml)
+            self.log.debug(xml)
             update(config, name, xml)
 
     def take_action(self, parsed_args):
