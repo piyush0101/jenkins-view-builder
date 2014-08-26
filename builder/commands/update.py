@@ -48,10 +48,10 @@ class Update(Command):
             self.read_update(config, yaml_file)
 
     def parse_config(self, config_file):
-        self.log.info("Parsing the jenkins config file")
+        self.log.debug("Parsing the jenkins config file")
         config = ConfigParser.ConfigParser()
         config.read(config_file)
         user = config.get('jenkins', 'user')
         password = config.get('jenkins', 'password')
-        url = config.get('jenkins', 'url') + '/createView?name=%s'
+        url = config.get('jenkins', 'url')
         return dict(url=url, user=user, password=password)
