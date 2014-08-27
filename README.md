@@ -9,11 +9,12 @@ Installation
 Clone the `jenkins-view-builder` repository and install it in a virtualenv using the following steps
 
     git clone https://github.rackspace.com/O3Eng-infra/jenkins-view-builder
+    cd jenkins-view-builder
     virtualenv .venv
     source .venv/bin/activate
     python setup.py install
 
-This should setup the `jenkins-view-builder`.
+This should install the `jenkins-view-builder`.
 
 Usage
 ---
