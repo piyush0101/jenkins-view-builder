@@ -58,4 +58,4 @@ It is also possible to test the view to make sure that jenkins-view-builder is c
 
         jenkins-view-builder test path-to-view-yaml-file
 
-Running this command will spit out the generated xml in the `out` folder of the current working directory. If the output looks good, the previous `update` command can be used to upload the view.
+Running this command will spit out the generated xml in the `out` folder of the current working directory. If the output looks good, the `update` command can be used to upload the view.
