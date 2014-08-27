@@ -40,24 +40,21 @@ jenkins-view-builder as of now only supports List View with support for other vi
            - weather
           recurse: False
 
-You can use the jenkins-view-builder to create this view in jenkins. Before doing that, you would need to have a jenkins config file which tells the jenkins-view-builder how to connect to jenkins. The config file looks like this
+jenkins-view-builder can create this view in jenkins. jenkins-view-builder needs a jenkins config file which tells it how to connect to jenkins. The config file looks like this
 
         [jenkins]
         user=user
         password=password
         url=http[s]://jenkinsurl
         
-Once you have that ready, you are all set to create the view in jenkins using the following command
+Once that is ready, we are all set to create the view in jenkins using the following command
 
         jenkins-view-builder update --conf path-to-jenkins-config-file update path-to-view-yaml-file
         
-You should see feedback from the logs on what the jenkins-view-builder is doing. 
+There should be feedback on stdout on what the tool is doing. update command is capable of determining if the view already exists and if it does then it just updates it. 
 
-        
+It is also possible to test the view to make sure that jenkins-view-builder is creating the correct xml that it would post to jenkins. This can be done using the following command
 
+        jenkins-view-builder test path-to-view-yaml-file
 
-
-
-
-
-
+Running this command will spit out the generated xml in the `out` folder of the current working directory. If the output looks good, the previous `update` command can be used to upload the view.
