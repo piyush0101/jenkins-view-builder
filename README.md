@@ -49,7 +49,7 @@ jenkins-view-builder can create this view in jenkins. jenkins-view-builder needs
         
 Once that is ready, we are all set to create the view in jenkins using the following command
 
-        jenkins-view-builder update --conf path-to-jenkins-config-file update path-to-view-yaml-file
+        jenkins-view-builder update --conf path-to-jenkins-config-file path-to-view-yaml-file
         
 There should be feedback on stdout on what the tool is doing. update command is capable of determining if the view already exists and if it does then it just updates it. 
 
