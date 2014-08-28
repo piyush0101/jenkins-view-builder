@@ -29,17 +29,17 @@ There are several types of views in jenkins
 jenkins-view-builder as of now only supports **List View** with support for other views coming soon. Views are specified as yaml files and given to the jenkins-view-builder to upload to jenkins. Say, you have the following **List View** view in a yaml file
 
         - view:
-          type: list
-          name: monsanto
-          description: Merge ply jobs
-          jobs:
-           - Merge-nova-Ply
-           - Merge-config-Ply
-           - Merge-bark-Ply    
-          columns:
-           - status
-           - weather
-          recurse: False
+            type: list
+            name: monsanto
+            description: Merge ply jobs
+            jobs:
+             - Merge-nova-Ply
+             - Merge-config-Ply
+             - Merge-bark-Ply    
+            columns:
+             - status
+             - weather
+            recurse: False
 
 jenkins-view-builder can create this view in jenkins. jenkins-view-builder needs a jenkins config file which tells it how to connect to jenkins. The config file looks like this
 
