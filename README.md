@@ -8,7 +8,7 @@ Installation
 
 Clone the `jenkins-view-builder` repository and install it in a virtualenv using the following steps
 
-    git clone https://github.rackspace.com/O3Eng-infra/jenkins-view-builder
+    git clone https://github.com/piyush0101/jenkins-view-builder.git
     cd jenkins-view-builder
     virtualenv .venv
     source .venv/bin/activate
