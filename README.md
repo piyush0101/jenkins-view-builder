@@ -1,3 +1,5 @@
+[![Build Status](https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master/build_image)](https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master)
+
 jenkins-view-builder
 ====================
 
