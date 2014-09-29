@@ -1,0 +1,12 @@
+- view:
+    type: pipeline
+    name: monsanto
+    title: build pipeline
+    first_job: joby job
+    no_of_displayed_builds: 20
+    refresh_frequency: 3
+    trigger_only_latest: false
+    show_pipeline_parameters: false
+    show_pipeline_parameters_in_headers: false
+    starts_with_parameters: false
+    show_pipeline_definition_header: false
