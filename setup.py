@@ -31,7 +31,7 @@ config = {
 
     'install_requires': ['cliff', 'PyYAML', 'argparse', 'cmd2',
         'gnureadline', 'prettytable', 'pyparsing', 'six',
-        'stevedore', 'wsgiref'],
+        'stevedore', 'wsgiref', 'requests'],
 
     'namespace_packages': [],
     'packages': find_packages(),
