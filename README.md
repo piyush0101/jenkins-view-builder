@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 [![Build Status](https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master/build_image)](https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master)
 
-=======
->>>>>>> d5602dcc489a80fe3282113b46c84b1689a8121f
 jenkins-view-builder
 ====================
 
@@ -13,11 +10,7 @@ Installation
 
 Clone the `jenkins-view-builder` repository and install it in a virtualenv using the following steps
 
-<<<<<<< HEAD
     git clone https://github.com/piyush0101/jenkins-view-builder.git
-=======
-    git clone https://github.rackspace.com/O3Eng-infra/jenkins-view-builder
->>>>>>> d5602dcc489a80fe3282113b46c84b1689a8121f
     cd jenkins-view-builder
     virtualenv .venv
     source .venv/bin/activate
@@ -68,7 +61,4 @@ It is also possible to test the view to make sure that jenkins-view-builder is c
         jenkins-view-builder test path-to-view-yaml-file
 
 Running this command will spit out the generated xml in the `out` folder of the current working directory. If the output looks good, the `update` command can be used to upload the view.
-<<<<<<< HEAD
 
-=======
->>>>>>> d5602dcc489a80fe3282113b46c84b1689a8121f
