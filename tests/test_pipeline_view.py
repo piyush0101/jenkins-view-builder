@@ -1,13 +1,13 @@
 import os
 from unittest import TestCase
 import xml.etree.ElementTree as ET
-from builder.converter.pipeline_view import convert_to_xml
+from builder.converter.converter import convert_to_xml
 
 
 class TestPipelineView(TestCase):
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    file_path = os.path.join(current_dir + "/%s")
+    file_path = os.path.join(current_dir + "/fixtures/%s")
 
     def test_should_have_name_tag_in_view_xml(self):
         yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
