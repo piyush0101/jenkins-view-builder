@@ -21,13 +21,7 @@ config = {
     'url': 'https://github.com/piyush0101/jenkins-view-builder',
     'download_url': 'https://github.com/piyush0101/jenkins-view-builder/archive/0.2.tar.gz',
 
-    'classifiers': ['Development Status :: 3 - Alpha',
-                    'License :: Apache Software License',
-                    'Programming Language :: Python',
-                    'Programming Language :: Python :: 2',
-                    'Programming Language :: Python :: 2.7',
-                    'Intended Audience :: Developers',
-                    'Environment :: Console'],
+    'classifiers': [],
 
     'platforms': ['Any'],
 
