@@ -1,0 +1,2 @@
+include builder/converter/templates/*.xml
+recursive-include *.xml
