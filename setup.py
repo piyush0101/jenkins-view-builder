@@ -10,16 +10,16 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'name': PROJECT,
-    'version': VERSION,
+    'name': 'jenkins-view-builder',
+    'version': 0.1,
 
     'description': 'Build jenkins views in YAML',
 
     'author': 'Piyush Srivastava',
     'author_email': 'piyush.0101@gmail.com',
 
-    'url': 'http://jenkins-view-builder.com',
-    'download_url': 'Where to download it.',
+    'url': 'https://github.com/piyush0101/jenkins-view-builder',
+    'download_url': 'https://github.com/piyush0101/jenkins-view-builder/archive/0.2.tar.gz',
 
     'classifiers': ['Development Status :: 3 - Alpha',
                     'License :: Apache Software License',
@@ -35,7 +35,9 @@ config = {
 
     'provides': [],
 
-    'install_requires': ['cliff'],
+    'install_requires': ['cliff', 'PyYAML', 'argparse', 'cmd2',
+        'gnureadline', 'prettytable', 'pyparsing', 'six',
+        'stevedore', 'wsgiref'],
 
     'namespace_packages': [],
     'packages': find_packages(),
@@ -53,10 +55,6 @@ config = {
                     ],
         },
 
-
-    'install_requires': ['nose'],
-    'packages': find_packages(),
-    'scripts': [],
 
     'zip_safe': False,
 }
