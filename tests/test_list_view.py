@@ -9,10 +9,10 @@ from builder.converter.list_view import create_column_element
 class TestListView(TestCase):
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    file_path = os.path.join(current_dir + "/fixtures/%s")
+    file_path = os.path.join(current_dir, "fixtures")
 
     def test_should_have_a_name_tag_in_view_xml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -23,7 +23,7 @@ class TestListView(TestCase):
         self.assertEqual(name.text, 'monsanto')
 
     def test_should_have_jobs_in_view_xml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -37,7 +37,7 @@ class TestListView(TestCase):
                                     'Merge-bark-Ply'])
 
     def test_should_have_columns_in_view_xml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -50,7 +50,7 @@ class TestListView(TestCase):
                                            'hudson.views.WeatherColumn'])
 
     def test_should_include_recurse_flag_in_xml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -61,7 +61,7 @@ class TestListView(TestCase):
         self.assertEqual(recurse.text, 'false')
 
     def test_should_include_description_in_xml(self):
-        yaml_file = open(self.file_path % 'list_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 

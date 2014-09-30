@@ -7,10 +7,10 @@ from builder.converter.converter import convert_to_xml
 class TestPipelineView(TestCase):
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    file_path = os.path.join(current_dir + "/fixtures/%s")
+    file_path = os.path.join(current_dir, "fixtures")
 
     def test_should_have_name_tag_in_view_xml(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -22,7 +22,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(name.text, 'monsanto')
 
     def test_should_have_title_in_view_xml(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -34,7 +34,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(name.text, 'build pipeline')
 
     def test_should_have_first_job_of_the_pipeline(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -46,7 +46,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(first_job.text, 'joby job')
 
     def test_should_include_number_of_displayed_builds(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -58,7 +58,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(displayed_builds.text, '20')
 
     def test_should_set_refresh_frequency(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -70,7 +70,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(refresh_frequency.text, '5')
 
     def test_should_trigger_only_latest(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -82,7 +82,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(trigger_latest.text, 'true')
 
     def test_should_set_pipeline_parameters(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
@@ -100,7 +100,7 @@ class TestPipelineView(TestCase):
         self.assertEqual(show_pipeline_defn_header.text, 'false')
 
     def test_should_set_allow_manual_trigger(self):
-        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+        yaml_file = open(os.path.join(self.file_path, 'pipeline_view.yaml'), 'r')
 
         yaml = yaml_file.read()
 
