@@ -2,7 +2,7 @@
 
 PROJECT = 'jenkins-view-builder'
 
-VERSION = 0.3
+VERSION = 0.4
 
 try:
     from setuptools import setup, find_packages
@@ -11,7 +11,7 @@ except ImportError:
 
 config = {
     'name': 'jenkins-view-builder',
-    'version': 0.3,
+    'version': 0.4,
 
     'description': 'Build jenkins views in YAML',
 
@@ -19,7 +19,7 @@ config = {
     'author_email': 'piyush.0101@gmail.com',
 
     'url': 'https://github.com/piyush0101/jenkins-view-builder',
-    'download_url': 'https://github.com/piyush0101/jenkins-view-builder/archive/0.2.tar.gz',
+    'download_url': 'https://github.com/piyush0101/jenkins-view-builder/archive/0.4.tar.gz',
 
     'classifiers': [],
 
@@ -33,10 +33,9 @@ config = {
         'gnureadline', 'prettytable', 'pyparsing', 'six',
         'stevedore', 'wsgiref', 'requests'],
 
-    'namespace_packages': [],
     'packages': find_packages(),
     'include_package_data': True,
-    'package_data': {'builder.converter.templates': ['*.xml']},
+    'package_data': {'builder.converter.template': ['*.xml']},
 
     'entry_points' : {
             'console_scripts' : [
