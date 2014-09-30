@@ -56,3 +56,57 @@ class TestPipelineView(TestCase):
         displayed_builds = xml_root.find('noOfDisplayedBuilds')
 
         self.assertEqual(displayed_builds.text, '20')
+
+    def test_should_set_refresh_frequency(self):
+        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+
+        refresh_frequency = xml_root.find('refreshFrequency')
+
+        self.assertEqual(refresh_frequency.text, '5')
+
+    def test_should_trigger_only_latest(self):
+        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+
+        trigger_latest = xml_root.find('triggerOnlyLatestJob')
+
+        self.assertEqual(trigger_latest.text, 'true')
+
+    def test_should_set_pipeline_parameters(self):
+        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+
+        show_pipeline_params = xml_root.find('showPipelineParameters')
+        show_pipeline_params_headers = xml_root.find('showPipelineParametersInHeaders')
+        starts_with_params = xml_root.find('startsWithParameters')
+        show_pipeline_defn_header = xml_root.find('showPipelineDefinitionHeader')
+
+        self.assertEqual(show_pipeline_params.text, 'false')
+        self.assertEqual(show_pipeline_params_headers.text, 'false')
+        self.assertEqual(starts_with_params.text, 'false')
+        self.assertEqual(show_pipeline_defn_header.text, 'false')
+
+    def test_should_set_allow_manual_trigger(self):
+        yaml_file = open(self.file_path % 'pipeline_view.yaml', 'r')
+
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+
+        always_allow_manual_trigger = xml_root.find('alwaysAllowManualTrigger')
+
+        self.assertEqual(always_allow_manual_trigger.text, 'true')
