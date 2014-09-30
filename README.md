@@ -28,7 +28,7 @@ There are several types of views in jenkins
 * List View
 * Radiator
 
-jenkins-view-builder as of now only supports **List View** with support for other views coming soon. Views are specified as yaml files and given to the jenkins-view-builder to upload to jenkins. Say, you have the following **List View** view in a yaml file
+jenkins-view-builder as of now supports **List View** and **Build Pipeline View** with support for other views coming soon. Examples of yaml files are in the `tests/fixtures` folder. Views are specified as yaml files and given to the jenkins-view-builder to upload to jenkins. Say, you have the following **List View** view in a yaml file
 
         - view:
             type: list
