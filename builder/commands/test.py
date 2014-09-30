@@ -6,7 +6,7 @@ import sys
 import argparse
 
 from cliff.command import Command
-from builder.converter.list_view import convert_to_xml
+from builder.converter.converter import convert_to_xml
 from builder.uploader.jenkins_upload import update
 
 
@@ -27,7 +27,10 @@ class Test(Command):
             yaml = yaml_file.read()
             self.log.debug(yaml)
 
-        name, xml = convert_to_xml(yaml)
+        try:
+            name, xml = convert_to_xml(yaml)
+        except Exception as e:
+            raise(e)
         if os.path.isdir("out"):
             shutil.rmtree("out", ignore_errors=True)
         os.makedirs("out")

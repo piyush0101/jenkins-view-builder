@@ -5,7 +5,7 @@ import sys
 import argparse
 
 from cliff.command import Command
-from builder.converter.list_view import convert_to_xml
+from builder.converter.converter import convert_to_xml
 from builder.uploader.jenkins_upload import update
 
 
