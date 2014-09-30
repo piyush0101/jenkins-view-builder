@@ -2,7 +2,7 @@
 
 PROJECT = 'jenkins-view-builder'
 
-VERSION = 0.2
+VERSION = 0.3
 
 try:
     from setuptools import setup, find_packages
@@ -11,7 +11,7 @@ except ImportError:
 
 config = {
     'name': 'jenkins-view-builder',
-    'version': 0.2,
+    'version': 0.3,
 
     'description': 'Build jenkins views in YAML',
 
