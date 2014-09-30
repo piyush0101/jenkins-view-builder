@@ -3,20 +3,14 @@
 jenkins-view-builder
 ====================
 
-jenkins-view-builder is a command line tool for managing jenkins views with yaml files and back your views with SCM. As of now the `jenkins-view-builder` is not available as a PyPi package so it would require some manual steps for installing.
+jenkins-view-builder is a command line tool for managing jenkins views with yaml files and back your views with SCM.
 
 Installation
 ---
 
-Clone the `jenkins-view-builder` repository and install it in a virtualenv using the following steps
+Install jenkins-view-builder at a system level or in an isolated virtualenv by running the following command:
 
-    git clone https://github.com/piyush0101/jenkins-view-builder.git
-    cd jenkins-view-builder
-    virtualenv .venv
-    source .venv/bin/activate
-    python setup.py install
-
-This should install the `jenkins-view-builder`.
+        pip install jenkins-view-builder
 
 Usage
 ---
