@@ -1,6 +1,6 @@
 - view:
-    type: list
-    name: monsanto
+type: list
+name: monsanto
     description: Merge ply jobs
     jobs:
      - Merge-nova-Ply
