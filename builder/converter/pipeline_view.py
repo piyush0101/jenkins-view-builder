@@ -61,10 +61,12 @@ def set_pipeline_params(root, yaml_dict):
 
     view = yaml_dict[0]['view']
 
-    show_pipeline_params.text = 'true'  if view['show_pipeline_parameters'] else 'false'
-    starts_with_params.text = 'true' if view['starts_with_parameters'] else 'false'
-    show_pipeline_params_headers.text = 'true' if view['show_pipeline_parameters_in_headers'] else 'false'
-    show_pipeline_defn_header.text = 'true' if view['show_pipeline_definition_header'] else 'false'
+    show_pipeline_params.text = str(view['show_pipeline_parameters']).lower()
+    starts_with_params.text = str(view['starts_with_parameters']).lower()
+    show_pipeline_params_headers.text = str(
+        view['show_pipeline_parameters_in_headers']).lower()
+    show_pipeline_defn_header.text = str(
+        view['show_pipeline_definition_header']).lower()
 
 
 def set_allow_manual_trigger(root, yaml_dict):
