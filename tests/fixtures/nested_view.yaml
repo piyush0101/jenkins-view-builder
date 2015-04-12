@@ -2,3 +2,10 @@
     type: nested
     name: monsanto
     title: monsanto
+    views:
+      - view:
+          type: list
+          name: Build Jobs
+          jobs:
+           - compile
+           - test

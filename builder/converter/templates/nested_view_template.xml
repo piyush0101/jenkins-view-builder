@@ -2,6 +2,7 @@
 <hudson.plugins.nested__view.NestedView plugin="nested-view@1.14">
   <owner class="hudson" reference="../../.."/>
   <name></name>
+  <title>/</title>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
