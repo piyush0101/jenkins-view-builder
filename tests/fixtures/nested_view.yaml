@@ -1,0 +1,4 @@
+- view:
+    type: nested
+    name: monsanto
+    title: monsanto
