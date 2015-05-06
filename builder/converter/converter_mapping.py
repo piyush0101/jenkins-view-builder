@@ -6,4 +6,4 @@ converters = {
     'list': list_view.convert_to_xml,
     'pipeline': pipeline_view.convert_to_xml,
     'nested': nested_view.convert_to_xml
-    }
+}

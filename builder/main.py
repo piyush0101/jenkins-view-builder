@@ -14,7 +14,7 @@ class JenkinsViewBuilder(App):
             description="Jenkins View Builder",
             version=0.1,
             command_manager=CommandManager('builder.commands'),
-            )
+        )
 
     def initialize_app(self, argv):
         self.log.debug("Initialize app")
