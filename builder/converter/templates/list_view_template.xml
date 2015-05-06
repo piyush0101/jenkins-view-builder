@@ -1,1 +1,15 @@
-<?xml version="1.0" ?><listView><owner class="hudson" reference="../../.."/><name></name><filterExecutors>false</filterExecutors><filterQueue>false</filterQueue><properties class="hudson.model.View$PropertyList"/><jobNames><comparator class="hudson.util.CaseInsensitiveComparator"/></jobNames><jobFilters/><columns></columns><recurse>false</recurse></listView>
+<?xml version="1.0" ?>
+<listView>
+    <owner class="hudson" reference="../../.."/>
+    <name></name>
+    <filterExecutors>false</filterExecutors>
+    <filterQueue>false</filterQueue>
+    <properties class="hudson.model.View$PropertyList"/>
+    <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+    </jobNames>
+    <jobFilters/>
+    <columns></columns>
+    <recurse>false</recurse>
+    <includeRegex></includeRegex>
+</listView>
