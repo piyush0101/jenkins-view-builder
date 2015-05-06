@@ -1,23 +1,35 @@
-import yaml
 import os
+import converter
 import xml.etree.ElementTree as ET
 
-def convert_to_xml(yaml_str):
-    yaml_dict = yaml.load(yaml_str)
+
+def convert_to_xml(yaml_dict):
     current_dir = os.path.dirname(os.path.realpath(__file__))
-    template_path = os.path.join(
-        current_dir, 'templates/nested_view_template.xml')
+    template_path = os.path.join(current_dir, 'templates/nested_view_template.xml')
+
     root = ET.parse(template_path).getroot()
     set_name(root, yaml_dict)
-    set_title(root, yaml_dict)
-    xml = ET.tostring(root, method='xml', encoding="us-ascii")
-    return (yaml_dict[0]['view']['name'],
-            "<?xml version=\"1.0\" ?>" + xml)
+    set_views(root, yaml_dict)
+    set_default_view(root, yaml_dict)
+    return root
+
 
 def set_name(root, yaml_dict):
     name = root.find('name')
-    name.text = yaml_dict[0]['view']['name']
+    name.text = yaml_dict['name']
 
-def set_title(root, yaml_dict):
-    title = root.find('title')
-    title.text = yaml_dict[0]['view']['title']
+
+def set_views(root, yaml_dict):
+    if 'views' not in yaml_dict:
+        raise Exception("Missing 'views' section for nested view.")
+
+    views_section = root.find('views')
+    for yaml_view in yaml_dict['views']:
+        view = converter.convert_yaml_dict_to_xml(yaml_view['view'])
+        views_section.append(view)
+
+
+def set_default_view(root, yaml_dict):
+    if 'defaultView' in yaml_dict:
+        defaultView = root.find('defaultView')
+        defaultView.text = yaml_dict['defaultView']
