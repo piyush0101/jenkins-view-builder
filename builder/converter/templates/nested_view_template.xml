@@ -2,16 +2,15 @@
 <hudson.plugins.nested__view.NestedView plugin="nested-view@1.14">
   <owner class="hudson" reference="../../.."/>
   <name></name>
-  <title>/</title>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>
   <properties class="hudson.model.View$PropertyList"/>
-  <views>
-  </views>
+  <defaultView/>
+  <views/>
   <columns>
     <columns>
       <hudson.views.WeatherColumn/>
       <hudson.views.StatusColumn/>
     </columns>
   </columns>
-</hudson.plugins.nested__view.NestedView> 
+</hudson.plugins.nested__view.NestedView>
