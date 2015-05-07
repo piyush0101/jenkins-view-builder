@@ -1,7 +1,6 @@
 - view:
     type: nested
     name: monsanto
-    title: monsanto
     views:
       - view:
           type: list

@@ -11,24 +11,12 @@ class TestNestedView(TestCase):
 
     def test_should_have_name_tag_in_view_xml(self):
         yaml_file = open(os.path.join(self.file_path, 'nested_view.yaml'), 'r')
-        
+
         yaml = yaml_file.read()
 
-        name, xml_view = convert_to_xml(yaml)
+        _, xml_view = convert_to_xml(yaml)
         xml_root = ET.fromstring(xml_view)
 
         name = xml_root.find('name')
-
-        self.assertEqual(name.text, 'monsanto')
-
-    def test_should_have_title_tag_in_view_xml(self):
-        yaml_file = open(os.path.join(self.file_path, 'nested_view.yaml'), 'r')
-        
-        yaml = yaml_file.read()
-
-        name, xml_view = convert_to_xml(yaml)
-        xml_root = ET.fromstring(xml_view)
-
-        name = xml_root.find('title')
 
         self.assertEqual(name.text, 'monsanto')

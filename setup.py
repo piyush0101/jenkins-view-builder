@@ -29,24 +29,33 @@ config = {
 
     'provides': [],
 
-    'install_requires': ['cliff', 'PyYAML', 'argparse', 'cmd2',
-        'prettytable', 'pyparsing', 'six',
-        'stevedore', 'wsgiref', 'requests'],
+    'install_requires': [
+        'cliff',
+        'PyYAML',
+        'argparse',
+        'cmd2',
+        'prettytable',
+        'pyparsing',
+        'six',
+        'stevedore',
+        'wsgiref',
+        'requests'
+    ],
 
     'packages': find_packages(),
     'include_package_data': True,
     'package_data': {'builder.converter.template': ['*.xml']},
 
-    'entry_points' : {
-            'console_scripts' : [
-                    'jenkins-view-builder = builder.main:main',
-                    ],
-            'builder.commands' : [
-                        'simple = builder.commands.simple:Simple',
-                        'update = builder.commands.update:Update',
-                        'test = builder.commands.test:Test',
-                    ],
-        },
+    'entry_points': {
+        'console_scripts': [
+            'jenkins-view-builder = builder.main:main',
+        ],
+        'builder.commands': [
+            'simple = builder.commands.simple:Simple',
+            'update = builder.commands.update:Update',
+            'test = builder.commands.test:Test',
+        ],
+    },
 
 
     'zip_safe': False,

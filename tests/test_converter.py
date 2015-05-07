@@ -2,6 +2,7 @@ import os
 from unittest import TestCase
 from builder.converter.converter import convert_to_xml
 
+
 class TestConverter(TestCase):
 
     current_dir = os.path.dirname(os.path.realpath(__file__))
