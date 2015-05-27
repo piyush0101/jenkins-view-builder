@@ -11,5 +11,4 @@
     <jobFilters/>
     <columns></columns>
     <recurse>false</recurse>
-    <includeRegex></includeRegex>
 </listView>
