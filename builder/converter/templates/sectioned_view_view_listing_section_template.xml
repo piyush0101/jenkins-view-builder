@@ -1,0 +1,10 @@
+<hudson.plugins.sectioned__view.ViewListingSection>
+  <jobNames>
+    <comparator class="hudson.util.CaseInsensitiveComparator"/>
+  </jobNames>
+  <name></name>
+  <width>FULL</width>
+  <alignment>CENTER</alignment>
+  <columns>1</columns>
+  <views/>
+</hudson.plugins.sectioned__view.ViewListingSection>

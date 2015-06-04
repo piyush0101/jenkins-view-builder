@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
+  <name></name>
+  <filterExecutors>false</filterExecutors>
+  <filterQueue>false</filterQueue>
+  <properties class="hudson.model.View$PropertyList"/>
+  <sections/>
+</hudson.plugins.sectioned__view.SectionedView>

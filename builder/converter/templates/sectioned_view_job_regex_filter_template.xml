@@ -1,0 +1,5 @@
+<hudson.views.RegExJobFilter plugin="view-job-filters@1.26">
+  <includeExcludeTypeString>includeMatched</includeExcludeTypeString>
+  <valueTypeString>NAME</valueTypeString>
+  <regex></regex>
+</hudson.views.RegExJobFilter>
