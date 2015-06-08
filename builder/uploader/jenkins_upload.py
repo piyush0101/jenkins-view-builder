@@ -1,9 +1,4 @@
 import requests
-import ConfigParser
-import argparse
-import os
-import sys
-import re
 
 headers = {'Content-type': 'text/xml'}
 

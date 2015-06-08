@@ -10,8 +10,9 @@ from builder.uploader.jenkins_upload import update
 
 
 class Update(Command):
-    "Command for updating views on jenkins"
-
+    """
+    Command for updating views on jenkins
+    """
     log = logging.getLogger(__name__)
 
     def get_parser(self, prog_name):

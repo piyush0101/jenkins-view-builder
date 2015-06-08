@@ -1,18 +1,16 @@
 import os
 import shutil
-import ConfigParser
 import logging
-import sys
 import argparse
 
 from cliff.command import Command
 from builder.converter.converter import convert_to_xml
-from builder.uploader.jenkins_upload import update
 
 
 class Test(Command):
-    "Spits out the generated xmls in the out folder of cwd"
-
+    """
+    Spits out the generated xmls for input yaml(s) in the configurable out folder
+    """
     log = logging.getLogger(__name__)
 
     def get_parser(self, prog_name):
