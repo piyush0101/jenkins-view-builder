@@ -132,6 +132,8 @@ def convert_job_filter_yaml_dict_to_xml(yaml_dict):
         return convert_job_status_filter_to_xml(yaml_dict)
     elif type == 'job-regex':
         return convert_job_regex_filter_to_xml(yaml_dict)
+    elif type == 'other-views':
+        return convert_other_views_filter_to_xml(yaml_dict)
     else:
         raise Exception("Invalid job-filter 'type' in yaml definition: %s" % type)
 
@@ -154,6 +156,13 @@ def convert_job_regex_filter_to_xml(yaml_dict):
         if value_type not in ['NAME', 'DESCRIPTION', 'SCM', 'EMAIL', 'MAVEN', 'SCHEDULE', 'NODE']:
             raise Exception("Invalid 'value-type' in yaml definition.")
         filter_xml.find('valueTypeString').text = value_type
+    return filter_xml
+
+def convert_other_views_filter_to_xml(yaml_dict):
+    filter_xml = get_xml_from_template('sectioned_view_other_views_filter_template.xml')
+    set_include_exclude_string(filter_xml, yaml_dict)
+    if 'other-view' in yaml_dict:
+        filter_xml.find('otherViewName').text = yaml_dict['other-view']
     return filter_xml
 
 

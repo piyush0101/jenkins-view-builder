@@ -27,6 +27,10 @@
                     regex: test-node-.*
                     value-type: NODE
                     include-exclude-type: excludeMatched
+                - job-filter:
+                    type: other-views
+                    other-view: OTHER_VIEW_NAME
+                    include-exclude-type: excludeMatched
         - section:
             type: view-listing
             name: view listing name

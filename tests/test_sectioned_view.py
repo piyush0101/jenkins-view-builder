@@ -10,6 +10,7 @@ VIEW_LISTING_LOCATOR = 'sections/hudson.plugins.sectioned__view.ViewListingSecti
 
 JOB_STATUS_FILTER_LOCATOR = 'hudson.views.JobStatusFilter'
 JOB_REGEX_FILTER_LOCATOR = 'hudson.views.RegExJobFilter'
+OTHER_VIEWS_FILTER_LOCATOR = 'hudson.views.OtherViewsFilter'
 
 
 class TestSectionedView(TestCase):
@@ -107,4 +108,12 @@ class TestSectionedView(TestCase):
         filter = section.find('jobFilters/%s' % JOB_REGEX_FILTER_LOCATOR)
         self.assertEqual(filter.find('regex').text, 'test-node-.*')
         self.assertEqual(filter.find('valueTypeString').text, 'NODE')
+        self.assertEqual(filter.find('includeExcludeTypeString').text, 'excludeMatched')
+
+    def test_should_have_other_views_filter_in_list_view_section_xml(self):
+        xml_root = self.load_test_xml()
+
+        section = xml_root.find(LIST_VIEW_SECTION_LOCATOR)
+        filter = section.find('jobFilters/%s' % OTHER_VIEWS_FILTER_LOCATOR)
+        self.assertEqual(filter.find('otherViewName').text, 'OTHER_VIEW_NAME')
         self.assertEqual(filter.find('includeExcludeTypeString').text, 'excludeMatched')

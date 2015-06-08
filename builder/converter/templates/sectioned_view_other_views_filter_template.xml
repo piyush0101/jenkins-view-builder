@@ -1,0 +1,4 @@
+<hudson.views.OtherViewsFilter  plugin="view-job-filters@1.26">
+  <includeExcludeTypeString>includeMatched</includeExcludeTypeString>
+  <otherViewName>&lt;select a view other than this one&gt;</otherViewName>
+</hudson.views.OtherViewsFilter>
