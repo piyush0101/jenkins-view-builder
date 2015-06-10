@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jenkins View Builder by piyush0101</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jenkins View Builder</h1>
+        <p>Create custom Jenkins views with YAML!</p>
+
+        <p class="view"><a href="https://github.com/piyush0101/jenkins-view-builder">View the Project on GitHub <small>piyush0101/jenkins-view-builder</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/piyush0101/jenkins-view-builder/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/piyush0101/jenkins-view-builder/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/piyush0101/jenkins-view-builder">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><a href="https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master"><img src="https://snap-ci.com/piyush0101/jenkins-view-builder/branch/master/build_image" alt="Build Status"></a></p>
+
+<h1>
+<a id="jenkins-view-builder" class="anchor" href="#jenkins-view-builder" aria-hidden="true"><span class="octicon octicon-link"></span></a>jenkins-view-builder</h1>
+
+<p>jenkins-view-builder is a command line tool for managing jenkins views with yaml files and back your views with SCM.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install jenkins-view-builder at a system level or in an isolated virtualenv by running the following command:</p>
+
+<pre><code>    pip install jenkins-view-builder
+</code></pre>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>There are several types of views in jenkins</p>
+
+<ul>
+<li>Build Pipeline View</li>
+<li>Nested View</li>
+<li>Dashboard</li>
+<li>List View</li>
+<li>Radiator</li>
+</ul>
+
+<p>jenkins-view-builder as of now supports <strong>List View</strong>, <strong>Build Pipeline View</strong> and <strong>Nested View</strong> with support for other views coming soon. Examples of yaml files are in the <code>tests/fixtures</code> folder. Views are specified as yaml files and given to the jenkins-view-builder to upload to jenkins. Say, you have the following <strong>List View</strong> view in a yaml file</p>
+
+<pre><code>    - view:
+        type: list
+        name: monsanto
+        description: Merge ply jobs
+        jobs:
+         - Merge-nova-Ply
+         - Merge-config-Ply
+         - Merge-bark-Ply    
+        columns:
+         - status
+         - weather
+        recurse: False
+</code></pre>
+
+<p>jenkins-view-builder can create this view in jenkins. jenkins-view-builder needs a jenkins config file which tells it how to connect to jenkins. The config file looks like this</p>
+
+<pre><code>    [jenkins]
+    user=user
+    password=password
+    url=http[s]://jenkinsurl
+</code></pre>
+
+<p>Once that is ready, we are all set to create the view in jenkins using the following command</p>
+
+<pre><code>    jenkins-view-builder update --conf path-to-jenkins-config-file path-to-view-yaml-file
+</code></pre>
+
+<p>There should be feedback on stdout on what the tool is doing. update command is capable of determining if the view already exists and if it does then it just updates it. </p>
+
+<p>It is also possible to test the view to make sure that jenkins-view-builder is creating the correct xml that it would post to jenkins. This can be done using the following command</p>
+
+<pre><code>    jenkins-view-builder test path-to-view-yaml-file
+</code></pre>
+
+<p>Running this command will spit out the generated xml in the <code>out</code> folder of the current working directory. If the output looks good, the <code>update</code> command can be used to upload the view.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/piyush0101">piyush0101</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
