@@ -9,7 +9,7 @@ def convert_to_xml(yaml_str):
     view_name = yaml_view['name']
 
     xml = convert_yaml_dict_to_xml(yaml_view)
-    xml_str = ET.tostring(xml, method='xml', encoding="us-ascii")
+    xml_str = ET.tostring(xml, encoding="us-ascii")
     return (view_name, "<?xml version=\"1.0\" ?>" + xml_str)
 
 

@@ -1,0 +1,40 @@
+- view:
+    type: sectioned
+    name: monsanto
+    sections:
+        - section:
+            type: text
+            name: text section name
+            text: text in text section
+        - section:
+            type: list-view
+            name: list-view section name
+            regex: test-.*
+            jobs:
+                - job1-test
+                - job2-test
+            columns:
+                - status
+                - weather
+                - job
+            job-filters:
+                - job-filter:
+                    type: job-status
+                    unstable: true
+                    include-exclude-type: includeUnmatched
+                - job-filter:
+                    type: job-regex
+                    regex: test-node-.*
+                    value-type: NODE
+                    include-exclude-type: excludeMatched
+                - job-filter:
+                    type: other-views
+                    other-view: OTHER_VIEW_NAME
+                    include-exclude-type: excludeMatched
+        - section:
+            type: view-listing
+            name: view listing name
+            columns: 3
+            views:
+                - view1
+                - view2

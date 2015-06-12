@@ -1,0 +1,8 @@
+<hudson.views.JobStatusFilter plugin="view-job-filters@1.26">
+  <includeExcludeTypeString>includeMatched</includeExcludeTypeString>
+  <unstable>false</unstable>
+  <failed>false</failed>
+  <aborted>false</aborted>
+  <disabled>false</disabled>
+  <stable>false</stable>
+</hudson.views.JobStatusFilter>
