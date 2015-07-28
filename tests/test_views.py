@@ -15,7 +15,6 @@ class TestViews(TestCase):
         view_xml = open(self.file_path % 'list_view.xml')
         xml = view_xml.read()
 
-        view_name = ET.fromstring(xml).find('name').text
         path = "views"
         write_to_disk(xml, path)
 
