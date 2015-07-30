@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <hudson.plugins.nested__view.NestedView plugin="nested-view@1.14">
-  <owner class="hudson" reference="../../.."/>
   <name></name>
   <filterExecutors>false</filterExecutors>
   <filterQueue>false</filterQueue>

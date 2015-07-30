@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <listView>
-    <owner class="hudson" reference="../../.."/>
     <name></name>
     <filterExecutors>false</filterExecutors>
     <filterQueue>false</filterQueue>

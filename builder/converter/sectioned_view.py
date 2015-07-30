@@ -77,7 +77,7 @@ def set_regex(root, yaml_dict):
 def set_jobs(root, yaml_dict):
     if 'jobs' in yaml_dict:
         jobs_section = root.find('jobNames')
-        jobs = yaml_dict['jobs']
+        jobs = sorted(yaml_dict['jobs'])
         job_elements = [create_string_element(job) for job in jobs]
         for element in job_elements:
             jobs_section.append(element)

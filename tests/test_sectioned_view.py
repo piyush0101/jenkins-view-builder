@@ -32,7 +32,6 @@ class TestSectionedView(TestCase):
         name = xml_root.find('name')
         self.assertEqual(name.text, 'monsanto')
 
-
     def test_should_have_name_in_text_section_xml(self):
         xml_root = self.load_test_xml()
 

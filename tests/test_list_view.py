@@ -32,9 +32,9 @@ class TestListView(TestCase):
         jobs = xml_root.findall('jobNames/string')
         jobs = [job.text for job in jobs]
 
-        self.assertListEqual(jobs, ['Merge-nova-Ply',
+        self.assertListEqual(jobs, ['Merge-bark-Ply',
                                     'Merge-config-Ply',
-                                    'Merge-bark-Ply'])
+                                    'Merge-nova-Ply'])
 
     def test_should_have_columns_in_view_xml(self):
         yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')

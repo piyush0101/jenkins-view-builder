@@ -11,8 +11,8 @@
             name: list-view section name
             regex: test-.*
             jobs:
-                - job1-test
                 - job2-test
+                - job1-test
             columns:
                 - status
                 - weather
