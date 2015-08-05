@@ -33,7 +33,7 @@ class TestListView(TestCase):
         jobs = [job.text for job in jobs]
 
         self.assertListEqual(jobs, ['Merge-bark-Ply',
-                                    'Merge-config-Ply',
+                                    'Merge-Config-Ply',
                                     'Merge-nova-Ply'])
 
     def test_should_have_columns_in_view_xml(self):

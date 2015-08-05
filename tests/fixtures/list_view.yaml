@@ -4,7 +4,7 @@
     description: Merge ply jobs
     jobs:
      - Merge-nova-Ply
-     - Merge-config-Ply
+     - Merge-Config-Ply
      - Merge-bark-Ply    
     columns:
      - status
