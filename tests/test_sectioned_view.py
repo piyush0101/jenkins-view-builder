@@ -56,7 +56,7 @@ class TestSectionedView(TestCase):
         section = xml_root.find(LIST_VIEW_SECTION_LOCATOR)
         jobs = section.findall('jobNames/string')
         jobs = [job.text for job in jobs]
-        self.assertListEqual(jobs, ['job1-test', 'job2-test'])
+        self.assertListEqual(jobs, ['job1-test', 'job2-test', 'Job3-test'])
 
     def test_should_have_columns_in_list_view_section_xml(self):
         xml_root = self.load_test_xml()
