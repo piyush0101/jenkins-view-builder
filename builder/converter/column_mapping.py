@@ -5,5 +5,6 @@ mapping = {
     'last_success': 'hudson.views.LastSuccessColumn',
     'last_failure': 'hudson.views.LastFailureColumn',
     'last_duration': 'hudson.views.LastDurationColumn',
-    'build_button': 'hudson.views.BuildButtonColumn'
+    'build_button': 'hudson.views.BuildButtonColumn',
+    'console': 'de.fspengler.hudson.pview.ConsoleViewColumn'
 }
