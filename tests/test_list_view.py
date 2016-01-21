@@ -71,6 +71,25 @@ class TestListView(TestCase):
 
         self.assertEqual(description.text, 'Merge ply jobs')
 
+    def test_should_set_includeRegex(self, yaml_filename=None):
+        if yaml_filename is None:
+            yaml_file = open(os.path.join(
+                self.file_path, 'list_view_regex.yaml'), 'r')
+        else:
+            print(yaml_filename)
+            yaml_file = open(os.path.join(self.file_path, yaml_filename), 'r')
+        yaml = yaml_file.read()
+
+        name, xml_view = convert_to_xml(yaml)
+        xml_root = ET.fromstring(xml_view)
+        includeRegex = xml_root.find('includeRegex')
+
+        self.assertEqual(includeRegex.text, 'Merge-*-Ply')
+
+        job_name = xml_root.find("jobNames")
+        job1 = job_name.findall("string")[0]
+        self.assertEqual(job1.text, "create-package-latest")
+
     def test_should_create_a_job_element_given_job_name(self):
         job_name = 'jobyjob'
         element = create_job_element(job_name)

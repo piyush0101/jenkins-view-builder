@@ -68,9 +68,9 @@ def set_recurse(root, yaml_dict):
 
 
 def set_regex(root, yaml_dict):
-    if 'includeRegex' in yaml_dict:
+    if 'includeRegex' in yaml_dict or 'regex' in yaml_dict:
         element = ET.Element('includeRegex')
-        element.text = yaml_dict['includeRegex']
+        element.text = yaml_dict.get('includeRegex', yaml_dict['regex'])
         root.append(element)
 
 

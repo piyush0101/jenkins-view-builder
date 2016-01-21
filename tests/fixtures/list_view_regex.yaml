@@ -2,9 +2,9 @@
     type: list
     name: monsanto
     jobs:
-     - regex: Merge-*-Ply
      - create-package-latest
     columns:
      - status
      - weather
     recurse: False
+    regex: Merge-*-Ply
