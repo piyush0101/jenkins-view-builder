@@ -1,0 +1,8 @@
+- view:
+    type: list
+    name: monsanto
+    columns:
+     - status
+     - weather
+    recurse: False
+    includeRegex: ^chef-.*$
