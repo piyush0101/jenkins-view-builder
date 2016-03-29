@@ -1,8 +1,10 @@
 - view:
     type: list
     name: monsanto
+    jobs:
+     - create-package-latest
     columns:
      - status
      - weather
     recurse: False
-    includeRegex: ^chef-.*$
+    includeRegex: Merge-*-Ply
