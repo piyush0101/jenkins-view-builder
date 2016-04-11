@@ -1,0 +1,19 @@
+---
+resources:
+  - name: jenkins-view-builder-git
+    type: git
+    source:
+      uri: https://github.com/piyush0101/jenkins-view-builder.git
+jobs:
+  - name: jenkins-view-builder
+    plan:
+      - task: tests
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: ubuntu}
+          inputs:
+            - name: jenkins-view-builder-git
+          run:
+            path: jenkins-view-builder-git/run_tests.sh
