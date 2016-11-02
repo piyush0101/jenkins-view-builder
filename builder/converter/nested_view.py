@@ -1,5 +1,5 @@
 import os
-import converter
+import builder
 import xml.etree.ElementTree as ET
 
 
@@ -25,7 +25,7 @@ def set_views(root, yaml_dict):
 
     views_section = root.find('views')
     for yaml_view in yaml_dict['views']:
-        view = converter.convert_yaml_dict_to_xml(yaml_view['view'])
+        view = builder.converter.converter.convert_yaml_dict_to_xml(yaml_view['view'])
         views_section.append(view)
 
 

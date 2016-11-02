@@ -1,4 +1,3 @@
-#!/usr/bin/env/python
 
 PROJECT = 'jenkins-view-builder'
 
@@ -38,7 +37,6 @@ config = {
         'pyparsing',
         'six',
         'stevedore',
-        'wsgiref',
         'requests'
     ],
 

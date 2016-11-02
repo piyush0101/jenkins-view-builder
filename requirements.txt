@@ -9,4 +9,3 @@ prettytable==0.7.2
 pyparsing==2.0.2
 six==1.7.3
 stevedore==0.15
-wsgiref==0.1.2

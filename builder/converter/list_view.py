@@ -1,5 +1,5 @@
 import os
-from column_mapping import mapping
+from builder.converter.column_mapping import mapping
 import xml.etree.ElementTree as ET
 
 

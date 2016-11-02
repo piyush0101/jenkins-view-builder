@@ -32,7 +32,7 @@ def post(url, payload, config):
                       verify=False)
     response = krb_request(do_post, config)
     if response is not None and response.status_code != 200:
-        print response.text
+        print(response.text)
 
 
 def update(config, view_name, view_xml):
@@ -44,8 +44,8 @@ def update(config, view_name, view_xml):
         response = krb_request(do_get, config)
         if response is not None:
             if response.status_code != 200:
-                print "Creating view %s" % view_name
+                print("Creating view %s" % view_name)
                 post(create_url, view_xml, config)
             else:
-                print "Updating view %s" % view_name
+                print("Updating view %s" % view_name)
                 post(update_url, view_xml, config)

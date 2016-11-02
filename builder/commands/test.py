@@ -43,5 +43,5 @@ class Test(Command):
             except Exception as e:
                 raise(e)
 
-            with open(os.path.join(out_dir, name + ".xml"), 'w') as xml_file:
+            with open(os.path.join(out_dir, name + ".xml"), 'wb') as xml_file:
                 xml_file.write(xml)

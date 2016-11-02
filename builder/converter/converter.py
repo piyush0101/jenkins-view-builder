@@ -1,5 +1,6 @@
 import yaml
-from converter_mapping import converters
+import six
+from builder.converter.converter_mapping import converters
 import xml.etree.ElementTree as ET
 
 
@@ -10,7 +11,7 @@ def convert_to_xml(yaml_str):
 
     xml = convert_yaml_dict_to_xml(yaml_view)
     xml_str = ET.tostring(xml, encoding="us-ascii")
-    return (view_name, "<?xml version=\"1.0\" ?>" + xml_str)
+    return (view_name, six.b("<?xml version=\"1.0\" ?>") + xml_str)
 
 
 def convert_yaml_dict_to_xml(yaml_dict):

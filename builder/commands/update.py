@@ -1,5 +1,5 @@
 import os
-import ConfigParser
+from six.moves import configparser
 import logging
 import sys
 import argparse
@@ -37,7 +37,7 @@ class Update(Command):
     def take_action(self, parsed_args):
         self.log.info("Updating view data in Jenkins")
         if not parsed_args.conf:
-            print parser.print_help()
+            self.get_parser("jenkins-view-builder").print_help()
             sys.exit(1)
         config = self.parse_config(parsed_args.conf)
         for yaml_filename in parsed_args.yaml:
@@ -56,7 +56,7 @@ class Update(Command):
 
     def parse_config(self, config_file):
         self.log.debug("Parsing the jenkins config file")
-        config = ConfigParser.ConfigParser()
+        config = configparser.ConfigParser()
         config.read(config_file)
         user = config.get('jenkins', 'user')
         password = config.get('jenkins', 'password')
