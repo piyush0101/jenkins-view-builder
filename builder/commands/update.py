@@ -58,7 +58,15 @@ class Update(Command):
         self.log.debug("Parsing the jenkins config file")
         config = configparser.ConfigParser()
         config.read(config_file)
-        user = config.get('jenkins', 'user')
-        password = config.get('jenkins', 'password')
+        if config.has_option('jenkins', 'user'):
+            user = config.get('jenkins', 'user')
+        else:
+            user = ""
+            self.log.info("'user' not set in the config file. Defaulting to \"\"")
+        if config.has_option('jenkins', 'password'):
+            password = config.get('jenkins', 'password')
+        else:
+            password = ""
+            self.log.info("'password' not set in the config file. Defaulting to \"\"")
         url = config.get('jenkins', 'url')
         return dict(url=url, user=user, password=password)
