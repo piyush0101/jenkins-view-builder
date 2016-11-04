@@ -1,7 +1,7 @@
-import list_view
-import pipeline_view
-import nested_view
-import sectioned_view
+from builder.converter import list_view
+from builder.converter import pipeline_view
+from builder.converter import nested_view
+from builder.converter import sectioned_view
 
 converters = {
     'list': list_view.convert_to_xml,
