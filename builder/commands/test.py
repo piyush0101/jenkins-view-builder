@@ -39,9 +39,15 @@ class Test(Command):
                 self.log.debug(yaml)
 
             try:
-                name, xml = convert_to_xml(yaml)
+                xmls = convert_to_xml(yaml)
             except Exception as e:
                 raise(e)
+            if isinstance(xmls[0], str):
+                name, xml = xmls
+                with open(os.path.join(out_dir, name + ".xml"), 'wb') as xml_file:
+                    xml_file.write(xml)
+            else:
+                for name, xml in xmls:
+                    with open(os.path.join(out_dir, name + ".xml"), 'wb') as xml_file:
+                        xml_file.write(xml)
 
-            with open(os.path.join(out_dir, name + ".xml"), 'wb') as xml_file:
-                xml_file.write(xml)

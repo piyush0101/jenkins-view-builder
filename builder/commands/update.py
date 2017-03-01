@@ -30,9 +30,18 @@ class Update(Command):
         with open(view_yaml, 'r') as yaml_file:
             yaml = yaml_file.read()
             self.log.debug(yaml)
-            name, xml = convert_to_xml(yaml)
-            self.log.debug(xml)
-            update(config, name, xml)
+            try:
+                xmls = convert_to_xml(yaml)
+            except Exception as e:
+                raise(e)
+            if isinstance(xmls[0], str):
+                name, xml = xmls
+                self.log.debug(xml)
+                update(config, name, xml)
+            else:
+                for name, xml in xmls:
+                    self.log.debug(xml)
+                    update(config, name, xml)
 
     def take_action(self, parsed_args):
         self.log.info("Updating view data in Jenkins")

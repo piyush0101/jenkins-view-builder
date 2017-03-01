@@ -1,0 +1,22 @@
+- view:
+    type: list
+    name: monsanto
+    description: Merge ply jobs
+    jobs:
+     - Merge-nova-Ply
+     - Merge-Config-Ply
+     - Merge-bark-Ply    
+    columns:
+     - status
+     - weather
+    recurse: False
+- view:
+    type: list
+    name: second
+    description: Second ply jobs
+    jobs:
+     - Second-nova-Ply
+    columns:
+     - status
+     - weather
+    recurse: False

@@ -22,6 +22,21 @@ class TestListView(TestCase):
 
         self.assertEqual(name.text, 'monsanto')
 
+    def test_should_have_multi_name_tags_in_view_xml(self):
+        yaml_file = open(os.path.join(self.file_path, 'multi_list_view.yaml'), 'r')
+
+        yaml = yaml_file.read()
+        names = []
+
+        for name, xml_view in convert_to_xml(yaml):
+            xml_root = ET.fromstring(xml_view)
+            name = xml_root.find('name')
+            print name.text
+            names.append(name.text)
+
+        self.assertListEqual(names, ['monsanto',
+                                     'second'])
+
     def test_should_have_jobs_in_view_xml(self):
         yaml_file = open(os.path.join(self.file_path, 'list_view.yaml'), 'r')
 
