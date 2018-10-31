@@ -24,6 +24,15 @@ class Update(Command):
                             type=str,
                             nargs="+",
                             help="Path to the view yaml file")
+        parser.add_argument("--url",
+                            type=str,
+                            help="Jenkins url")
+        parser.add_argument("--user",
+                            type=str,
+                            help="Jenkins user")
+        parser.add_argument("--password",
+                            type=str,
+                            help="Jenkins user password")
         return parser
 
     def read_update(self, config, view_yaml):
@@ -48,7 +57,7 @@ class Update(Command):
         if not parsed_args.conf:
             self.get_parser("jenkins-view-builder").print_help()
             sys.exit(1)
-        config = self.parse_config(parsed_args.conf)
+        config = self.parse_config(parsed_args)
         for yaml_filename in parsed_args.yaml:
 
             yaml_file = os.path.join(yaml_filename)
@@ -63,19 +72,28 @@ class Update(Command):
                 self.log.debug("View file %s" % yaml_file)
                 self.read_update(config, os.path.join(yaml_file))
 
-    def parse_config(self, config_file):
+    def parse_config(self, parser):
         self.log.debug("Parsing the jenkins config file")
         config = configparser.ConfigParser()
-        config.read(config_file)
-        if config.has_option('jenkins', 'user'):
-            user = config.get('jenkins', 'user')
+        config.read(parser.conf)
+        if parser.user:
+            user = parser.user
         else:
-            user = ""
-            self.log.info("'user' not set in the config file. Defaulting to \"\"")
-        if config.has_option('jenkins', 'password'):
-            password = config.get('jenkins', 'password')
+            if config.has_option('jenkins', 'user'):
+                user = config.get('jenkins', 'user')
+            else:
+                user = ""
+                self.log.info("'user' not set in the config file. Defaulting to \"\"")
+        if parser.password:
+            password = parser.password
         else:
-            password = ""
-            self.log.info("'password' not set in the config file. Defaulting to \"\"")
-        url = config.get('jenkins', 'url')
+            if config.has_option('jenkins', 'password'):
+                password = config.get('jenkins', 'password')
+            else:
+                password = ""
+                self.log.info("'password' not set in the config file. Defaulting to \"\"")
+        if parser.url:
+            url = parser.url
+        else:
+            url = config.get('jenkins', 'url')
         return dict(url=url, user=user, password=password)
