@@ -56,7 +56,13 @@ file which tells it how to connect to jenkins. The config file looks like this
         user=user
         password=password
         url=http[s]://jenkinsurl
-        
+
+Also you can override connection parameters by shell arguments:
+
+        --url - Jenkins URL
+        --user - Jenkins user
+        --password - Jenkins user password
+
 Once that is ready, we are all set to create the view in jenkins using the following command
 
         jenkins-view-builder update --conf path-to-jenkins-config-file path-to-view-yaml-file
